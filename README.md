@@ -30,7 +30,7 @@ $ docker build -t tcnksm/web .
 Run haproxy container
 
 ```bash
-$ ID=$(docker run -d -t -p 8080:80 -p 7946 --name proxy tcnksm/haproxy)
+$ docker run -d -t -p 8080:80 -p 7946 --name proxy tcnksm/haproxy
 ```
 
 Run web container
