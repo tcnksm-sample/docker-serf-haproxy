@@ -22,7 +22,10 @@ $ docker build -t tcnksm/haproxy .
 
 ```bash
 $ cd web
-$ docker build -t tcnksm/web .
+$ echo '<h1>web1</h1>' > index.html
+$ docker build -t tcnksm/web1 .
+$ echo '<h1>web2</h1>' > index.html
+$ docker build -t tcnksm/web2 .
 ```
 
 ## Run
@@ -36,7 +39,8 @@ $ docker run -d -t -p 8080:80 -p 7946 --name proxy tcnksm/haproxy
 Run web container
 
 ```bash
-$ docker run -d -t --link proxy:serf tcnksm/web
+$ docker run -d -t --link proxy:serf tcnksm/web1
+$ docker run -d -t --link proxy:serf tcnksm/web2
 ```
 
 Access it
